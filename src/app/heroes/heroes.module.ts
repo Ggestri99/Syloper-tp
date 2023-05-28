@@ -21,5 +21,8 @@ import { HeroesRoutingModule } from './heroes-routing.module';
     CommonModule,
     HeroesRoutingModule
   ],
+  exports: [
+    HeroesRoutingModule
+  ]
 })
 export class HeroesModule { }
