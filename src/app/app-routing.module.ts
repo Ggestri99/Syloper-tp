@@ -6,18 +6,24 @@ import { ErrorPageComponent } from './shared/error-page/error-page.component'
 
 const routes: Routes = [
 	{
-		path: '',
-		loadChildren: () => import('./heroes/heroes.module').then(m =>HeroesModule)
+	  path: 'heroes',
+	  loadChildren: () => import('./heroes/heroes.module').then( m => m.HeroesModule ),
 	},
 	{
-		path: '404',
-		component: ErrorPageComponent
+	  path: '',
+	  redirectTo: 'heroes/listado', // Redirige a 'heroes/listado' en lugar de 'heroes'
+	  pathMatch: 'full'
 	},
 	{
-		path: '**',
-		redirectTo: '404',
+	  path: '404',
+	  component: ErrorPageComponent,
+	},
+	{
+	  path: '**',
+	  redirectTo: '404',
 	}
-]
+  ];
+  
 
 @NgModule({
 	imports: [RouterModule.forRoot(routes)],
